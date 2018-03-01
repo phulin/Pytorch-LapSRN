@@ -128,6 +128,7 @@ if __name__ == '__main__':
     parser.add_argument('--checkpoint', type=str, default='model', help='Path to checkpoint')
     parser.add_argument('--cuda', action='store_true', help='use cuda?')
     parser.add_argument('--seed', type=int, default=123, help='random seed to use. Default=123')
+    parser.add_argument('--train', type=str, default='/train/hi', help='training examples')
     opt = parser.parse_args()
     
     print(opt)
@@ -141,7 +142,7 @@ if __name__ == '__main__':
         torch.cuda.manual_seed(opt.seed)
 
     print('===> Loading datasets')
-    train_set = get_training_set()
+    train_set = get_training_set(opt.train)
     training_data_loader = DataLoader(dataset=train_set, batch_size=opt.batchSize,
                                       pin_memory=True, num_workers=0)
 
