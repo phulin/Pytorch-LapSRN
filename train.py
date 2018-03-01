@@ -83,7 +83,7 @@ def train_loop(epoch, i):
 
     return total_loss / len(training_data_loader)
 
-N_LOOPS = 4000
+N_LOOPS = 500
 def train_epoch(epoch, loop0, total_loss=0.):
     loops_loss = 0.
     loops_count = 0

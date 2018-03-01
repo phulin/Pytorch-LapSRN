@@ -116,4 +116,4 @@ class DatasetFromFolder(data.Dataset):
         return result.result()
 
     def __len__(self):
-        return 64
+        return 512
