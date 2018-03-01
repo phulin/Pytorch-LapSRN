@@ -11,6 +11,8 @@ from os import listdir, makedirs
 import re
 import time
 
+import multiprocessing as mp
+
 import torch
 import torch.optim as optim
 from torch.autograd import Variable
@@ -144,7 +146,7 @@ if __name__ == '__main__':
     print('===> Loading datasets')
     train_set = get_training_set(opt.train)
     training_data_loader = DataLoader(dataset=train_set, batch_size=opt.batchSize,
-                                      pin_memory=True, num_workers=0)
+                                      pin_memory=True, num_workers=mp.cpu_count())
 
     model = None
     epoch0 = 1
