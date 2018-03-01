@@ -81,7 +81,7 @@ class DatasetFromFolder(data.Dataset):
     @timeit
     def __init__(self, image_dir):
         super(DatasetFromFolder, self).__init__()
-        self.image_filenames = [join(image_dir, x) for x in listdir(image_dir) if is_image_file(x)]
+        self.image_filenames = [join(image_dir, x) for x in listdir(image_dir) if not x.startswith('.') and is_image_file(x)]
         self.images = [load_img(fn) for fn in self.image_filenames]
         #self.executor = ThreadPoolExecutor()
         #self.images = list(self.executor.map(load_img, self.image_filenames))
