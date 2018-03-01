@@ -146,7 +146,7 @@ if __name__ == '__main__':
     print('===> Loading datasets')
     train_set = get_training_set(opt.train)
     training_data_loader = DataLoader(dataset=train_set, batch_size=opt.batchSize,
-                                      pin_memory=True, num_workers=4)
+                                      pin_memory=True, num_workers=0)
 
     model = None
     epoch0 = 1
